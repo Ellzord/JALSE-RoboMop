@@ -1,5 +1,8 @@
 package robomop.entities;
 
+import java.util.Set;
+import java.util.UUID;
+
 import jalse.entities.Entity;
 import jalse.entities.annotations.EntityID;
 import jalse.entities.annotations.GetAttribute;
@@ -7,9 +10,6 @@ import jalse.entities.annotations.GetEntities;
 import jalse.entities.annotations.GetEntity;
 import jalse.entities.annotations.NewEntity;
 import jalse.entities.annotations.SetAttribute;
-
-import java.util.Set;
-import java.util.UUID;
 
 public interface Floor extends Entity {
 
@@ -19,14 +19,14 @@ public interface Floor extends Entity {
     Set<Water> getAllWater();
 
     @GetAttribute
-    Integer getHeight();
+    int getHeight();
 
     @EntityID(mostSigBits = 0, leastSigBits = 1)
     @GetEntity
     Mop getMop();
 
     @GetAttribute
-    Integer getWidth();
+    int getWidth();
 
     default boolean isClean() {
 	final int cleanTiles = getEntitiesOfType(Water.class).size();
@@ -42,10 +42,10 @@ public interface Floor extends Entity {
     Water newWater();
 
     @SetAttribute
-    void setHeight(Integer height);
+    void setHeight(int height);
 
     @SetAttribute
-    void setWidth(Integer width);
+    void setWidth(int width);
 
     default void unwashFloor() {
 	getEntitiesOfType(Water.class).forEach(Entity::kill);

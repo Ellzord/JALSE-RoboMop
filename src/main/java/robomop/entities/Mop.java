@@ -1,12 +1,11 @@
 package robomop.entities;
 
-import jalse.entities.Entity;
-import jalse.entities.annotations.GetAttribute;
-import jalse.entities.annotations.SetAttribute;
-
 import java.awt.Point;
 import java.util.concurrent.ThreadLocalRandom;
 
+import jalse.entities.Entity;
+import jalse.entities.annotations.GetAttribute;
+import jalse.entities.annotations.SetAttribute;
 import robomop.attributes.Direction;
 
 public interface Mop extends Entity {

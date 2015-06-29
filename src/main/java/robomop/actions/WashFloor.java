@@ -1,11 +1,10 @@
 package robomop.actions;
 
+import java.awt.Point;
+
 import jalse.actions.Action;
 import jalse.actions.ActionContext;
 import jalse.entities.Entity;
-
-import java.awt.Point;
-
 import robomop.entities.Floor;
 import robomop.entities.Water;
 

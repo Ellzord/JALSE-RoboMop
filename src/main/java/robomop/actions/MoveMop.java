@@ -1,12 +1,11 @@
 package robomop.actions;
 
-import jalse.actions.Action;
-import jalse.actions.ActionContext;
-import jalse.entities.Entity;
-
 import java.awt.Point;
 import java.util.concurrent.ThreadLocalRandom;
 
+import jalse.actions.Action;
+import jalse.actions.ActionContext;
+import jalse.entities.Entity;
 import robomop.entities.Floor;
 import robomop.entities.Mop;
 

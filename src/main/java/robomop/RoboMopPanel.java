@@ -1,9 +1,5 @@
 package robomop;
 
-import static jalse.JALSEBuilder.buildManualJALSE;
-import static jalse.actions.MultiActionBuilder.buildChain;
-import jalse.JALSE;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -16,6 +12,9 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import jalse.DefaultJALSE;
+import jalse.JALSE;
+import jalse.actions.MultiAction;
 import robomop.actions.MoveMop;
 import robomop.actions.WashFloor;
 import robomop.entities.Floor;
@@ -30,7 +29,7 @@ public class RoboMopPanel extends JPanel implements ActionListener {
 
     public RoboMopPanel() {
 	// Manually ticked JALSE
-	jalse = buildManualJALSE();
+	jalse = new DefaultJALSE.Builder().setManualEngine().build();
 	// Create floor and mop
 	createEntities();
 	// Size to floor size x tile
@@ -68,7 +67,7 @@ public class RoboMopPanel extends JPanel implements ActionListener {
 	mop.setRandomDirection();
 
 	// Schedule move and wash
-	floor.scheduleForActor(buildChain(new MoveMop(), new WashFloor()), 0, 100, TimeUnit.MILLISECONDS);
+	floor.scheduleForActor(MultiAction.buildChain(new MoveMop(), new WashFloor()), 0, 100, TimeUnit.MILLISECONDS);
     }
 
     private Floor getFloor() {
